@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model categoria {
+  idcategoria  Int         @id @default(autoincrement())
+  nomCategoria String      @db.VarChar(45)
+  productos    productos[]
+
+  @@index([idcategoria], map: "idProduc_idx")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model detallecarrito {
+  idProducto Int
+  idusuario  Int
+  cantidad   Int       @default(1)
+  fecha      DateTime? @db.Date
+  idCarrito  Int       @id @default(autoincrement())
+  productos  productos @relation(fields: [idProducto], references: [idProductos], onDelete: NoAction, onUpdate: NoAction, map: "producto")
+  usuario    usuario   @relation(fields: [idusuario], references: [idusuario], onDelete: NoAction, onUpdate: NoAction, map: "usuario")
+
+  @@index([idProducto], map: "producto_idx")
+  @@index([idusuario], map: "usuario_idx")
+}
+
+model detalleorden {
+  idDetalle   Int       @id @default(autoincrement())
+  precio      Decimal   @db.Decimal(10, 2)
+  cantidad    Int
+  idProductos Int
+  idOrden     Int
+  orden       orden     @relation(fields: [idOrden], references: [idOrden], onDelete: NoAction, onUpdate: NoAction, map: "fk_detalleOrden_orden1")
+  productos   productos @relation(fields: [idProductos], references: [idProductos], onDelete: NoAction, onUpdate: NoAction, map: "fk_detalleOrden_productos1")
+
+  @@index([idOrden], map: "fk_detalleOrden_orden1_idx")
+  @@index([idProductos], map: "fk_detalleOrden_productos1_idx")
+}
+
+model orden {
+  idOrden        Int               @id @default(autoincrement())
+  monto          Decimal           @db.Decimal(10, 2)
+  direccionEnvio String            @db.VarChar(100)
+  correoOrden    String            @db.VarChar(45)
+  fechaOrden     DateTime          @db.Date
+  estadoOrden    orden_estadoOrden @default(en_proceso)
+  idusuario      Int
+  subtotal       Float
+  impuesto       orden_impuesto    @default(dbgenerated("15%"))
+  descuento      Float
+  usuario        usuario           @relation(fields: [idusuario], references: [idusuario], onDelete: NoAction, onUpdate: NoAction, map: "fk_orden_usuario1")
+  detalleorden   detalleorden[]
+
+  @@index([idusuario], map: "fk_orden_usuario1_idx")
+}
+
+model productos {
+  idProductos    Int                      @id @default(autoincrement())
+  nombre         String                   @db.VarChar(45)
+  precio         Decimal                  @db.Decimal(10, 0)
+  descripcion    String                   @db.VarChar(45)
+  stock          Int
+  imagen         String?                  @db.VarChar(250)
+  idCategoria    Int
+  codProducto    String                   @db.VarChar(10)
+  estadoProducto productos_estadoProducto @default(Nuevo)
+  categoria      categoria                @relation(fields: [idCategoria], references: [idcategoria], onDelete: NoAction, onUpdate: NoAction, map: "produc_categoria")
+  detallecarrito detallecarrito[]
+  detalleorden   detalleorden[]
+
+  @@index([idCategoria], map: "produc_categoria_idx")
+}
+
+model usuario {
+  idusuario       Int                @id @default(autoincrement())
+  nombre          String             @db.VarChar(30)
+  apellido        String             @db.VarChar(30)
+  correo          String             @db.VarChar(45)
+  username        String             @db.VarChar(10)
+  password        String             @db.VarChar(255)
+  rolUsuario      usuario_rolUsuario
+  estado          Boolean            @default(true)
+  fechanacimiento DateTime           @db.Date
+  genero          usuario_genero
+  detallecarrito  detallecarrito[]
+  orden           orden[]
+}
+
+enum orden_estadoOrden {
+  en_proceso @map("en proceso")
+  recibido
+}
+
+enum orden_impuesto {
+  uno @map("15%")
+  dos @map("18%")
+}
+
+enum productos_estadoProducto {
+  Nuevo
+  Usado
+}
+
+enum usuario_rolUsuario {
+  admin
+  cliente
+}
+
+enum usuario_genero {
+  Femenino
+  Masculino
+}

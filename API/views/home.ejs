@@ -1,0 +1,67 @@
+<%-include('encabezado')-%>
+
+    <div class="home">
+        <div class="headers">
+            <% if(usuario) { %>
+                <div class="text">Welcome, <%= usuario.nombre %>!</div>
+            <%} else {%>
+                <div class="text">Welcome!</div>
+            <% }%>
+            <li class="buscar" >
+                <i class='bx bx-search icon'></i>
+                <form action="/productos/buscar">
+                    <input type="search" id="buscador" name="nombre" placeholder="Search..." >
+                </form>
+            </li>
+        </div>
+        <div class="forma1"></div>
+        <br>
+        <div class="forma2"></div>
+        <div class="text2">Categorias</div>
+            <div class="categories">
+                <a href="#" class="categories_group" style="background-color: #082032;">
+                    <h1>Tecnología</h1>
+                    <img src="/img/vector33.png" class="img1" alt="">
+                </a>
+                <a href="#" class="categories_group" style="background-color: #FF4C29;">
+                    <h1>Moda</h1>
+                    <img src="/img/vector4.png" class="img2" alt="">
+                </a>
+                <a href="#" class="categories_group" style="background-color: #2C394B;">
+                    <h1>Hogar</h1>
+                    <img src="/img/vector5.png" class="img3" alt="">
+                </a>
+            </div>
+        <br>
+        <br>
+        <footer>
+            <img src="/img/logo.png" alt="logo">
+            <a href="#"><i class='bx bxl-meta icon'></i></a>
+            <a href="#"><i class='bx bxl-twitter icon' ></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt icon'></i></a>
+            
+            <div class="links">
+                <a href="">Productos</a>
+                <a href="">Vender</a>
+                <a href="">Login</a>
+                <a href="">Carrito</a>
+            </div>
+
+        </footer>
+        <center>
+            <div class="copyright">
+                © 2022 | VARIETY BUY STORE
+            </div>
+        </center>
+    </div>
+
+    
+
+    <script src="/js/app.js"></script>
+    <script>
+            $(document).on('click', 'ul li', function(){
+        $(this).addClass('active').siblings().removeClass('active')
+    });
+    </script>
+    
+<%-include('pieDePagina')-%>

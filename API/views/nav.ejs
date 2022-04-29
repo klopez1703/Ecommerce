@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <!-- or -->
+        <link rel="stylesheet"
+        href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="/img/logo.png" alt="logo">
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">Variety Buy</span>
+                    <span class="profession">Store</span>
+                </div>
+
+            </div>
+
+            <i class="bx bx-chevron-right toggle"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box" >
+                    <i class='bx bx-search icon'></i>
+                    <form action="/productos/buscar">
+                        <input type="search" id="buscador" name="nombre" placeholder="Search..." >
+                    </form>
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/">
+                            <i class="bx bx-home-alt icon"></i>
+                            <span class="text nav-text">Inicio</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/usuarios/carrito">
+                            <i class="bx bxs-cart icon"></i>
+                            <span class="text nav-text">Carrito</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/productos">
+                            <i class="bx bx-category icon" style="color: white;"></i>
+                            <span class="text nav-text">Productos</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/productos/formProducto">
+                            <i class="bx bx-shopping-bag icon"></i>
+                            <span class="text nav-text">Vender</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-link">
+                        <a href="/usuarios/login">
+                            <i class="bx bx-log-in icon"></i>
+                            <span class="text nav-text">Login</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-link">
+                        <a href="/usuarios/registro">
+                            <i class="bx bxs-registered icon"></i>
+                            <span class="text nav-text">Registrarse</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+
+                <div class="bottom-content">
+                    <li class="">
+                        <a href="/usuarios/cerrarSecion">
+                            <i class="bx bx-log-out icon"></i>
+                            <span class="text nav-text">Cerrar Sesion</span>
+                        </a> 
+                    </li>
+            
+
+            
+
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class="bx bx-moon icon moon"></i>
+                        <i class="bx bxs-sun icon sun"></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+
+        </div>
+    </nav>
+
+    <script src="/js/app.js"></script>
+
+</body>
+</html>

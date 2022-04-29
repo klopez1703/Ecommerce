@@ -1,0 +1,152 @@
+<%-include('encabezado')-%>
+    <div class="home">
+        <div class="headers">
+            <div class="text">Vender Producto</div>
+            <li class="buscar" >
+                <i class='bx bx-search icon'></i>
+                <form action="/productos/buscar">
+                    <input type="search" id="buscador" name="nombre" placeholder="Search..." >
+                </form>
+            </li>
+        </div>
+
+    <div class="contentProducto">
+        <div class="container">
+            <div class="wrapper">
+               <div class="imageupload">
+                  <img src=" " class="imageup" alt="">
+               </div>
+               <div class="content">
+                  <div class="iconupload">
+                     <i class="fas fa-cloud-upload-alt"></i>
+                  </div>
+                  <div class="textupload">
+                    
+                  </div>
+               </div>
+               <div id="cancel-btn">
+                  <i class="fas fa-times"></i>
+               </div>
+               <div class="file-name">
+                 
+               </div>
+            </div>
+        </div>
+
+        <div class="formvender">
+            <form action="/productos/guardar" method="post" enctype="multipart/form-data">
+                <div class="forminput">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" class="nombre" id="nombre" placeholder="Nombre">
+                </div>
+        
+                <div class="forminput">
+                    <label for="precio">Precio</label>
+                    <input type="text" name="precio" class="precio" id="precio" placeholder="00.00">
+                </div>
+                
+                <div class="forminput">
+                    <label for="descripcion">Descripción</label>
+                    <input type="textarea" name="descripcion" class="descripcion" id="descripcion" placeholder="Descripcion">
+                </div>
+        
+                <div class="forminput">
+                    <label for="stock">Cantidad</label>
+                    <input type="number" name="stock" class="stock" id="stock" placeholder="Stock">
+                </div>
+        
+                <div class="forminput">
+                    <label for="idCategoria">Categoría</label>
+                    <select name="idCategoria" id="idCategoria">
+                        <option value="1">Tecnologia</option>
+                        <option value="2">Moda</option>
+                        <option value="3">Hogar</option>
+                    </select>
+                </div>
+
+                <div class="forminput">
+                    <label for="codProducto">Codigo de Producto</label>
+                    <input type="text" name="codProducto" class="codProducto" id="codProducto" placeholder="0bc56">
+                </div>     
+
+                <div class="forminput">
+                    <label for="estadoProducto">Estado del producto</label>
+                    <select name="estadoProducto" id="estadoProducto">
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Usado">Usado</option>
+                    </select>
+                </div>
+
+                        
+                <div class="forminput">
+                    <label for="imagen"></label>
+                    <button onclick="defaultBtnActive()" id="custom-btn">Seleccionar Imagen</button>
+                    <input  name="imagen" class="imagen" id="default-btn" type="file" hidden>
+                </div>
+
+                <div class="formbutton">
+                    <button id="btn-submit" type="submit">Vender Producto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+        <br>
+        <br>
+        <footer>
+            <img src="/img/logo.png" alt="logo">
+            <a href="#"><i class='bx bxl-meta icon'></i></a>
+            <a href="#"><i class='bx bxl-twitter icon' ></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt icon'></i></a>
+            
+            <div class="links">
+                <a href="">Productos</a>
+                <a href="">Vender</a>
+                <a href="">Login</a>
+                <a href="">Carrito</a>
+            </div>
+
+        </footer>
+        <center>
+            <div class="copyright">
+                © 2022 | VARIETY BUY STORE
+            </div>
+        </center>
+
+        <script>
+            const wrapper = document.querySelector(".wrapper");
+            const fileName = document.querySelector(".file-name");
+            const defaultBtn = document.querySelector("#default-btn");
+            const customBtn = document.querySelector("#custom-btn");
+            const cancelBtn = document.querySelector("#cancel-btn i");
+            const img = document.querySelector(".imageup");
+            let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+            function defaultBtnActive(){
+              defaultBtn.click();
+            }
+            defaultBtn.addEventListener("change", function(){
+              const file = this.files[0];
+              if(file){
+                const reader = new FileReader();
+                reader.onload = function(){
+                  const result = reader.result;
+                  img.src = result;
+                  wrapper.classList.add("active");
+                }
+                cancelBtn.addEventListener("click", function(){
+                  img.src = "";
+                  wrapper.classList.remove("active");
+                })
+                reader.readAsDataURL(file);
+              }
+              if(this.value){
+                let valueStore = this.value.match(regExp);
+                fileName.textContent = valueStore;
+              }
+            });
+         </script>
+    </div>
+        
+   
+    <%-include('pieDePagina')-%>

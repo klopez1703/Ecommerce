@@ -1,0 +1,74 @@
+<%-include('encabezado')-%>
+
+<div class="home">
+  <div class="headers">
+    <div class="text">Productos</div>
+    <li class="buscar">
+      <i class="bx bx-search icon"></i>
+      <form action="/productos/buscar">
+        <input
+          type="search"
+          id="buscador"
+          name="nombre"
+          placeholder="Search..."
+        />
+      </form>
+    </li>
+  </div>
+  <div class="view">
+    <img src="/<%=producto.imagen%>" alt="" />
+
+    <section class="texto">
+      <h1 class="titulo"><%=producto.nombre%></h1>
+      <p class="infodescri"><%=producto.descripcion%></p>
+      <div class="tooglee">
+        <i class='bx bx-money ionico'></i>
+        <h3>L. <%=producto.precio%> C/U</h3>
+    </div>
+      <div class="tooglee">
+      <i class='bx bx-purchase-tag ionico'></i>
+      <p class="stock"> <b>STOCK: </b><%=producto.stock%> Unidades</p>
+    </div>
+    <div class="tooglee">
+      <i class='bx bxs-comment-add ionico'></i>
+      <p class="state"> <b>ESTADO: </b><%=producto.estadoProducto%></p>
+    </div>
+
+      <form action="/usuarios/producto" method="post">
+        <input
+          type="text"
+          name="idProducto"
+          value="<%=producto.idProductos%>"
+          hidden
+        />
+        <div class="bottonview">
+            <button class="btnAgregarCart">Agregar a Carrito</button>
+            <button class="btnBuyCart">Comprar</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+ 
+
+  <br />
+  <br />
+  <footer>
+    <img src="/img/logo.png" alt="logo" />
+    <a href="#"><i class="bx bxl-meta icon"></i></a>
+    <a href="#"><i class="bx bxl-twitter icon"></i></a>
+    <a href="#"><i class="bx bxl-instagram-alt icon"></i></a>
+
+    <div class="links">
+      <a href="">Productos</a>
+      <a href="">Vender</a>
+      <a href="">Login</a>
+      <a href="">Carrito</a>
+    </div>
+  </footer>
+  <center>
+    <div class="copyright">© 2022 | VARIETY BUY STORE</div>
+  </center>
+</div>
+
+<%-include('pieDePagina')-%>

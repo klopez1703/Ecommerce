@@ -1,0 +1,82 @@
+<%-include('encabezado')-%>
+
+    <section class="home">
+        <div class="headers">
+            <div class="text">Inicio de Sesión</div>
+        </div>
+
+        <div class="contain">
+
+            <div class="contizquierda">
+                <div class="contizquierda1">
+                  <div class="inforegis">
+                    <h1>Bienvenido de Nuevo</h1>
+                    <h2>Para mantenerse conectado con su información personal</h2>
+                  </div>
+                  
+                 <div class="button">
+                     <a href="/usuarios/registro" class="btnRegistro">Registrarse</a>
+                </div>
+          
+                </div>
+                <div class="contizquierda2"></div>
+                </div>
+
+
+            <div class="l-form">
+                <h1>Inicio de Sesión</h1>
+                <div class="line"></div>
+                <div class="socialmedia">
+                    <a href="#"><i class='bx bxl-meta soci'></i></a>
+                    <a href="#"><i class='bx bxl-twitter soci' ></i></a>
+                    <a href="#"><i class='bx bxl-instagram-alt soci'></i></a>
+                </div>
+                <form action="/usuarios/login"  method="post" class="form">
+                    <div class="form__div">
+                        <input type="text" name="correo" class="form__input" placeholder=" " required>
+                        <label for="" class="form__label"><i class='bx bxs-envelope forico'>&nbsp;Email</i></label>
+                    </div>
+    
+                    <div class="form__div">
+                        <input type="password" name="password" class="form__input" placeholder=" " required minlength="4" maxlength="12">
+                        <label for="" class="form__label"><i class='bx bx-key forico'>&nbsp;Password</i></label>
+                    </div>
+
+                    <div class="boton2">
+                        <button type="submit" class="form__button">INICIAR SESIÓN</button>
+                    </div>
+    
+                </form>
+
+
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+        <footer>
+            <img src="/img/logo.png" alt="logo">
+            <a href="#"><i class='bx bxl-meta icon'></i></a>
+            <a href="#"><i class='bx bxl-twitter icon' ></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt icon'></i></a>
+            
+            <div class="links">
+                <a href="">Productos</a>
+                <a href="">Vender</a>
+                <a href="">Login</a>
+                <a href="">Carrito</a>
+            </div>
+
+        </footer>
+        <center>
+            <div class="copyright">
+                © 2022 | VARIETY BUY STORE
+            </div>
+        </center>
+    </section>
+
+        
+    
+    
+    <%-include('pieDePagina')-%>

@@ -1,0 +1,59 @@
+<%-include('encabezado')-%>
+
+    <section class="home">
+        <div class="headers">
+            <div class="text">Productos</div>
+            <li class="buscar" >
+                <i class='bx bx-search icon'></i>
+                <form action="/productos/buscar">
+                    <input type="search" id="buscador" name="nombre" placeholder="Search..." >
+                </form>
+            </li>
+        </div>
+        <div class="cardProduc">
+            
+            <% producto.forEach(e=>{ %>
+                    <div class="card">
+                        <img src="/<%=e.imagen%>" alt="">
+                            <h2 class="card-title"><%=e.nombre%></h2>
+                            <div class="info">
+                                <h3>L.<%=e.precio%> C/U</h3>
+                                <p class="card-text"><%=e.descripcion%></p>
+                            </div>
+                            <div class="boton">
+                                <a href="/productos/<%=e.idProductos%>" class="btnvermas">Ver</a>
+                                <form action="/usuarios/producto" method="post">
+                                    <input type="text" name="idProducto" value="<%=e.idProductos%>" hidden>
+                                    <button class="btnagregar">Agregar</button>
+                                </form>
+                            </div>                        
+                            
+                    </div>
+                <% })%>
+        </div>  
+
+
+        <br>
+        <br>
+        <footer>
+            <img src="/img/logo.png" alt="logo">
+            <a href="#"><i class='bx bxl-meta icon'></i></a>
+            <a href="#"><i class='bx bxl-twitter icon' ></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt icon'></i></a>
+            
+            <div class="links">
+                <a href="">Productos</a>
+                <a href="">Vender</a>
+                <a href="">Login</a>
+                <a href="">Carrito</a>
+            </div>
+
+        </footer>
+        <center>
+            <div class="copyright">
+                © 2022 | VARIETY BUY STORE
+            </div>
+        </center>
+    </section>
+    
+    <%-include('pieDePagina')-%>

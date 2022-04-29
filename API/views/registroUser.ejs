@@ -1,0 +1,206 @@
+<%-include('encabezado')-%>
+
+<section class="home">
+  <div class="headers">
+    <div class="text">Registro</div>
+  </div>
+
+  <div class="conteregistro">
+	  <div class="contizquierda">
+      <div class="contizquierda1">
+        <div class="inforegis">
+          <h1>Bienvenido de Nuevo</h1>
+          <h2>Para mantenerse conectado con su información personal</h2>
+        </div>
+        
+        <div class="button">
+          <a href="/usuarios/login" class="btnLogin">Iniciar Sesión</a>
+        </div>
+
+      </div>
+      <div class="contizquierda2"></div>
+	  </div>
+
+	<div class="formuregistro">
+		<h4>REGISTRO</h4>
+    <form
+      action="/usuarios/guardar"
+      method="post"
+      class="formulario"
+      id="formulario"
+    >
+      <!-- Grupo: Nombre -->
+      <div class="formulario__grupo" id="grupo__nombre">
+        <div class="formulario__grupo-input">
+          <input
+            type="text"
+            class="formulario__input"
+            name="nombre"
+            id="nombre"
+            placeholder=" "
+            required
+          />
+		  <label for="" class="formulario__label"><i class='bx bxs-smile iconregis'></i>&nbsp;Nombre</label>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">
+			No se aceptan numeros, solo letras de 4 a 16 dígitos
+      </div>
+
+      <!-- Grupo: Apellido -->
+      <div class="formulario__grupo" id="grupo__apellido">
+        <div class="formulario__grupo-input">
+          <input
+            type="text"
+            class="formulario__input"
+            name="apellido"
+            id="apellido"
+            placeholder=" "
+            required
+          />
+		  <label for="" class="formulario__label"><i class='bx bxs-smile iconregis'></i>&nbsp;Apellido</label>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">
+			No se aceptan numeros, solo letras de 4 a 16 dígitos
+        </p>
+      </div>
+
+      <!-- Grupo: Usuario -->
+      <div class="formulario__grupo" id="grupo__username">
+        <div class="formulario__grupo-input">
+          <input
+            type="text"
+            class="formulario__input"
+            name="username"
+            id="username"
+            placeholder=" "
+            required
+          />
+		  <label for="" class="formulario__label"><i class='bx bxs-user-circle iconregis'></i>&nbsp;Usuario</label>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">
+          El usuario tiene que ser de 4 a 10 digitos
+        </p>
+      </div>
+
+      <!-- Grupo: Contraseña -->
+      <div class="formulario__grupo" id="grupo__password">
+        <div class="formulario__grupo-input">
+          <input
+            type="password"
+            class="formulario__input"
+            name="password"
+            id="password"
+			placeholder=" "
+      required
+          />
+		  <label for="" class="formulario__label"><i class='bx bxs-key iconregis'></i>&nbsp;Password</label>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">
+          La contraseña tiene que ser de 4 a 12 dígitos.
+        </p>
+      </div>
+
+      <!-- Grupo: Correo Electronico -->
+      <div class="formulario__grupo" id="grupo__correo">
+        <div class="formulario__grupo-input">
+          <input
+            type="email"
+            class="formulario__input"
+            name="correo"
+            id="correo"
+            placeholder=" "
+            required
+          />
+		  <label for="" class="formulario__label"><i class='bx bxs-envelope iconregis'></i>&nbsp;Email</label>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">
+          El formato es correo@correo.com
+        </p>
+      </div>
+
+      <!-- Grupo: Fecha de Nacimiento -->
+      <div class="formulario__grupo" id="grupo__fechanacimiento">
+        <div class="formulario__grupo-input">
+          <input
+            type="date"
+            class="formulario__input"
+            name="fechanacimiento"
+            id="fechanacimiento"
+            placeholder=" "
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Grupo: Genero -->
+      <div class="formulario__grupo" id="grupo__genero">
+        <div class="formulario__grupo-input">
+          <input
+            type="text"
+            class="formulario__input"
+            name="genero"
+            id="genero"
+            placeholder=" "
+            required
+          />
+		  <label for="" class="formulario__label"><i class='bx bx-male-female iconregis'></i>&nbsp;Genero</label>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">
+          El genero tiene que ser de 4 a 16.
+        </p>
+      </div>
+
+      <div class="formulario__mensaje" id="formulario__mensaje">
+        <p>
+          <i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor
+          rellena el formulario correctamente.
+        </p>
+      </div>
+
+      <div class="formulario__grupo formulario__grupo-btn-enviar">
+        <button type="submit" class="formulario__btn">Enviar</button>
+        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">
+          Formulario enviado exitosamente!
+        </p>
+      </div>
+    </form>
+</div>
+  </div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<footer>
+  <img src="/img/logo.png" alt="logo" />
+  <a href="#"><i class="bx bxl-meta icon"></i></a>
+  <a href="#"><i class="bx bxl-twitter icon"></i></a>
+  <a href="#"><i class="bx bxl-instagram-alt icon"></i></a>
+
+  <div class="links">
+    <a href="">Productos</a>
+    <a href="">Vender</a>
+    <a href="">Login</a>
+    <a href="">Carrito</a>z
+  </div>
+</footer>
+<center>
+  <div class="copyright">© 2022 | VARIETY BUY STORE</div>
+</center>
+
+</section>
+
+
+<!-- <script src="/js/script.js"></script> -->
+<script
+  src="https://kit.fontawesome.com/2c36e9b7b1.js"
+  crossorigin="anonymous"
+></script>
+
+<%-include('pieDePagina')-%>

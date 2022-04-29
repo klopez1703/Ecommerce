@@ -1,0 +1,64 @@
+<%-include('encabezado')-%>
+
+    <section class="home">
+        <div class="headers">
+            <div class="text">Carrito</div>
+            <li class="buscar" >
+                <i class='bx bx-search icon'></i>
+                <form action="/productos/buscar">
+                    <input type="search" id="buscador" name="nombre" placeholder="Search..." >
+                </form>
+            </li>
+        </div>
+        <div class="cardProduc">
+            
+            <% productos.forEach(e=>{ %>
+                    <div class="card-carrito">
+                        <img src="/<%=e.productos.imagen%>" alt="">
+                            <h2 class="card-title"><%=e.productos.nombre%></h2>
+                            <div class="info">
+                                <h3>L.<%=e.productos.precio%> C/U</h3>
+                                <p class="card-text"><%=e.productos.descripcion%></p>
+                            </div>
+                            <div class="input">
+                            <input type="number" value="<%=e.cantidad%>" placeholder="Cantidad">
+                        </div>
+                            <div class="boton">
+                                <a href="#" class="btnvermas">Comprar</a>
+                                <form action="/carrito/eliminar" method="post">
+                                    <input type="text" name="idCarrito" value="<%=e.idCarrito%>" hidden>
+                                    <button class="btnagregar">Eliminar</button>
+                                </form>
+                            </div>                        
+                            
+                    </div>
+                <% })%>
+        </div>  
+
+
+
+        <br>
+        <br>
+        <footer>
+            <img src="/img/logo.png" alt="logo">
+            <a href="#"><i class='bx bxl-meta icon'></i></a>
+            <a href="#"><i class='bx bxl-twitter icon' ></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt icon'></i></a>
+            
+            <div class="links">
+                <a href="">Productos</a>
+                <a href="">Vender</a>
+                <a href="">Login</a>
+                <a href="">Carrito</a>
+            </div>
+
+        </footer>
+        <center>
+            <div class="copyright">
+                © 2022 | VARIETY BUY STORE
+            </div>
+        </center>
+    </section>
+
+   
+    <%-include('pieDePagina')-%>
